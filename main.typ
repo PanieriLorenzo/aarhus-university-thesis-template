@@ -1,5 +1,8 @@
-#import "style.typ": template, intro_numbering, body_numbering, appendix
-#import "imports.typ": codly-init, init-acronyms, print-index, ac
+// Copyright (c) 2025 Lorenzo Panieri <lorenzo.panieri@pm.me>
+// See LICENSE file for details
+
+#import "style.typ": appendix, body_numbering, intro_numbering, template
+#import "imports.typ": ac, codly-init, init-acronyms, print-index
 
 #show: codly-init
 
@@ -63,7 +66,7 @@ Remember to add the logo of your university, e.g. Aarhus University, as it is co
 
 The main numbering of the pages should start on your first section, e.g. the introduction section. The pages before that are numbered using roman numerals.
 
-`#show: intro_numbering` marks the start of the front matter, after the title page. Front matter pages are numbered with roman numerals. 
+`#show: intro_numbering` marks the start of the front matter, after the title page. Front matter pages are numbered with roman numerals.
 
 `#show: body_numbering` marks the start of the main body of your thesis, and starts page numbering from 1 with arabic numerals. You should write all the front matter before calling this show rule.
 
@@ -80,18 +83,18 @@ You can then insert acronyms in the text by using the `ac` and `acp` acronyms fo
 Code blocks are automatically formatted using the `codly` package, you can import custom syntaxes through the template by setting the `syntaxes` field. You can reference listings by putting them in a figure, like @list-some-rust. Typst can automatically determine that this is a "Listing" and not a "Figure" and displays the reference text correctly.
 
 #figure(caption: [This is a code block with some sample Rust code])[
-```rust
-fn main() {
-    for i in 1..=100 {
-        match (i % 3, i % 5) {
-            (0, 0) => println!("fizzbuzz"),
-            (0, _) => println!("fizz"),
-            (_, 0) => println!("buzz"),
-            (_, _) => println!("{}", i),
-        }
-    }
-}
-```
+  ```rust
+  fn main() {
+      for i in 1..=100 {
+          match (i % 3, i % 5) {
+              (0, 0) => println!("fizzbuzz"),
+              (0, _) => println!("fizz"),
+              (_, 0) => println!("buzz"),
+              (_, _) => println!("{}", i),
+          }
+      }
+  }
+  ```
 ]<list-some-rust>
 
 == Colors

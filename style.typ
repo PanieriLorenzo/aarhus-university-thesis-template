@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Lorenzo Panieri <lorenzo.panieri@pm.me>
+// See LICENSE file for details
+
 #import "@preview/ctheorems:1.1.3": thmrules
 #import "@preview/numbly:0.1.0": numbly
 
@@ -27,33 +30,25 @@
 #let template(
   programme: "<Name of Your Master Programme>",
   title: "<Title of Your Thesis>",
-
-  // you can use a single student name, in this case the text will be adjusted 
+  // you can use a single student name, in this case the text will be adjusted
   // automatically to say "Student" instead of "Students"
   students: ("<Student Name>", "<Student Name>"),
-  
   supervisor: "<Name of Your Supervisor>",
-
   // if you have a co-supervisor you must specify them here
   cosupervisor: none,
   date: datetime.today(),
-
   // if you do not include a bibliography path, it will not be rendered
   // the bibliography and references are rendered in IEEE style
   bibliography_path: none,
-
   // adds a red "DRAFT" warning on the header of each page, remember to remove
   // it before handing in!
   draft: false,
-
   // set to false to use the default Typst font instead
   use_latex_font: true,
-
   // provide additional syntax highlighting syntaxes, for instance if you are
   // developing a programming lanugage or are using a lesser known language.
   // These should be in `.sublime-syntax` format.
   syntaxes: (),
-
   // you can give a different path for your university logo, or just replace
   // the file logo.svg with a different logo.
   logo_path: "logo.svg",
@@ -72,10 +67,7 @@
     if el != none and el.func() == eq {
       // Override equation references.
       [Equation~]
-      numbering(
-        el.numbering,
-        ..counter(eq).at(el.location()),
-      )
+      numbering(el.numbering, ..counter(eq).at(el.location()))
     } else {
       // Other references as usual.
       it
@@ -91,7 +83,7 @@
   // tables
   show table: set par(justify: false)
   show figure.where(kind: table): set figure.caption(position: top)
-  
+
   // numbering
   set heading(numbering: "1.")
   set math.equation(numbering: "(1)")
@@ -131,10 +123,7 @@
         ),
         inset: 1em,
       )[
-        #par(
-          leading: 5pt,
-          text(size: 23pt, strong(title)),
-        )
+        #par(leading: 5pt, text(size: 23pt, strong(title)))
       ]
       #v(5pt)
       #box(
@@ -158,10 +147,7 @@
         ],
       ),
       #v(5pt)
-      #text(
-        size: 14pt,
-        date.display("[month repr:long] [day], [year]"),
-      )
+      #text(size: 14pt, date.display("[month repr:long] [day], [year]"))
       #v(20pt)
       #image(
         width: 55%,

@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Lorenzo Panieri <lorenzo.panieri@pm.me>
+// See LICENSE file for details
+
 // Configure your dependencies here.
 
-#import "@preview/acrostiche:0.5.2": ac, acp, reset-all-acronyms, init-acronyms, print-index, reset-acronym
+#import "@preview/acrostiche:0.5.2": ac, acp, init-acronyms, print-index, reset-acronym, reset-all-acronyms
 #import "@preview/codly:1.3.0" as cd
 #import "@preview/codly:1.3.0": codly, local
 #import "@preview/codly-languages:0.1.8": codly-languages
